@@ -1,0 +1,343 @@
+// ============== NAVBAR ======================
+
+// .navbar {
+//   margin-bottom: 0;
+//   opacity: 0.9;
+//   font-size: 15px;
+//   text-align: left;
+// }
+// .navbar li a,
+// .navbar .navbar-brand {
+//   color: #000 !important;
+// }
+// .navbar-nav li a:hover {
+//   color: #fff !important;
+// }
+// .navbar-nav li.active a {
+//   color: #000 !important;
+//   background-color: #29292c !important;
+// }
+// .navbar-default .navbar-toggle {
+//   border-color: transparent;
+// }
+// ============================================
+// .backdropBackground {
+//   background: transparent;
+// }
+
+// .top-bar {
+//   border-bottom: thin solid #eee;
+//   margin: 10px 30px 10px 30px;
+// }
+// .div-navbar {
+//   border-bottom: thin solid #ddd;
+//   padding: 10px 0px 10px 30px;
+// }
+// .div-main {
+//   border: thin solid #ddd;
+//   padding: 10px;
+// }
+// .div-slider {
+//   padding: 3px;
+//   background-color: 999;
+//   border-radius: 4px;
+//   // border-top-right-radius: 10%;
+//   // border-bottom-left-radius: 10%;
+// }
+// .div-sidebar {
+//   padding: 10px;
+// }
+// .div-services {
+//   // border: thin solid rgb(236, 118, 8);
+//   margin-bottom: 0px;
+// }
+
+// .img-frameA {
+//   border-radius: 50% !important;
+//   opacity: 0.6;
+//   transition: 0.5s;
+// }
+// .img-frameA:hover {
+//   border-radius: 1% !important;
+//   opacity: 1;
+// }
+// .frameA {
+//   // border: 1px solid #ddd;
+//   // border-radius: 50% !important;
+//   transition: box-shadow 0.5s;
+//   padding: 10px;
+//   box-shadow: 5px 0px 40px rgba(199, 98, 98, 0.2);
+// }
+// .frameA:hover {
+//   box-shadow: 15px 10px 40px rgba(26, 21, 21, 0.2);
+//   // border: thin solid #999;
+// }
+// .frameB {
+//   margin-bottom: 5px;
+// }
+
+// .img-slider {
+//   border: 1px solid #ddd;
+//   transition: box-shadow 0.5s;
+//   padding: 10px;
+//   box-shadow: 5px 0px 40px rgba(199, 98, 98, 0.2);
+// }
+
+// .bar-sm {
+//   height: 20px;
+//   border-top-left-radius: 10px;
+//   border-top-right-radius: 10px;
+//   background-image: linear-gradient(rgb(235, 57, 57), rgb(71, 4, 4));
+//   color: #fff;
+// }
+// .bg-setup {
+//   // background-image: linear-gradient(#eee, #fff);
+//   color: #444;
+//   padding: 20px 2px 10px 2px;
+// }
+// .bg-setup tr:hover {
+//   color: #000;
+// }
+
+// .bg-setup .thead:hover {
+//   color: #000;
+// }
+
+// .bar-med {
+//   height: 40px;
+//   color: #000;
+//   border: thin solid #eee;
+//   padding: 6px;
+// }
+// .bar-med i {
+//   font-size: 20px;
+//   color: brown;
+//   padding: 3px;
+// }
+// .bar-med a {
+//   font-size: 20px;
+//   color: rgb(51, 28, 28);
+//   padding: 3px;
+//   transition: 0.6s;
+// }
+// .bar-med a:hover {
+//   font-size: 20px;
+//   color: brown;
+//   padding: 1px;
+//   letter-spacing: 1px;
+//   font-weight: bold;
+// }
+// .banner-img {
+//   padding: 15px 2px 15px 2px;
+//   background-color: #eee;
+// }
+
+// .bar-menu {
+//   border: thin solid #eee;
+//   border-bottom-left-radius: 10px;
+//   border-bottom-right-radius: 10px;
+// }
+// .tab-panel {
+//   padding: 10px;
+//   letter-spacing: 0.5px;
+// }
+
+// // ========== Mat Extension panel =====================
+// .menu-form-frame {
+//   padding: 15px;
+//   box-shadow: 2px 0px 2px rgba(182, 179, 179, 0.2);
+//   border-radius: 4px;
+//   cursor: pointer;
+// }
+
+// .icon-menu {
+//   margin-right: 5px;
+// }
+
+// .frameX {
+//   text-align: center;
+//   // margin: 0px 0px 0px 0px;
+// }
+
+// .outer {
+//   padding: 0px 20px 25px 25px;
+//   border: thin solid #ddd;
+// }
+
+// .upload-btn-wrapper {
+//   position: relative;
+//   overflow: hidden;
+// }
+
+// .btn-file {
+//   border: thin solid gray;
+//   color: gray;
+//   background-color: white;
+//   padding: 4px 10px;
+//   border-radius: 3px;
+//   font-size: 13px;
+//   font-weight: bold;
+// }
+
+// .upload-btn-wrapper input[type="file"] {
+//   font-size: 100px;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   opacity: 0;
+// }
+
+// .table-form td {
+//   padding: 7px 10px 5px 7px;
+//   margin-right: 10px;
+// }
+
+// .table-form td i {
+//   font-size: 20px;
+//   color: #999;
+// }
+
+// .table-form td i:hover {
+//   color: #000;
+// }
+
+// .matInput-width {
+//   width: 100%;
+//   font-family: "Courier New";
+// }
+// .container {
+//   width: 100%;
+//   height: 95vh;
+//   border: none;
+// }
+// .sidenav-content {
+//   display: flex;
+//   height: 100vh;
+//   /* align-items: center;
+//   justify-content: center; */
+// }
+
+// .sidenav {
+//   z-index: 1;
+//   padding: 20px;
+//   height: 93vh;
+//   width: 100%;
+//   background: transparent;
+//   /* align-items: center;
+//   justify-content: center; */
+//   overflow-y: auto;
+// }
+
+// // =========SAW TOOTH BORDER=================================================
+
+// @mixin saw-tooth-vertical($width: 12px, $bg: #fff) {
+//   background-image:
+//     /* Top jagged */ linear-gradient(
+//       135deg,
+//       $bg 50%,
+//       transparent 50%
+//     ),
+//     linear-gradient(225deg, $bg 50%, transparent 50%),
+//     /* Bottom jagged */ linear-gradient(45deg, $bg 50%, transparent 50%),
+//     linear-gradient(-45deg, $bg 50%, transparent 50%);
+//   background-position:
+//     /* Top jagged */ top left, top left,
+//     /* Bottom jagged */ bottom left, bottom left;
+//   background-size: $width $width;
+//   background-repeat: repeat-x;
+// }
+// @mixin saw-tooth-horizontal($width: 12px, $bg: #fff) {
+//   background-image:
+//     /* Left jagged */ linear-gradient(
+//       135deg,
+//       $bg 50%,
+//       transparent 50%
+//     ),
+//     linear-gradient(45deg, $bg 50%, transparent 50%),
+//     /* Right jagged */ linear-gradient(-135deg, $bg 50%, transparent 50%),
+//     linear-gradient(-45deg, $bg 50%, transparent 50%);
+//   background-position:
+//     /* Left jagged */ top left, top left,
+//     /* Right jagged */ top right, top right;
+//   background-size: $width $width;
+//   background-repeat: repeat-y;
+// }
+// .banner-vertical {
+//   background-color: yellowgreen;
+//   @include saw-tooth-vertical();
+// }
+
+// .banner-horizontal {
+//   background-color: crimson;
+//   @include saw-tooth-horizontal();
+// }
+
+// @mixin saw-tooth($width: 12px, $bg: #fff) {
+//   background-image:
+//     /* Top jagged */ linear-gradient(
+//       135deg,
+//       $bg 50%,
+//       transparent 50%
+//     ),
+//     linear-gradient(225deg, $bg 50%, transparent 50%),
+//     /* Bottom jagged */ linear-gradient(45deg, $bg 50%, transparent 50%),
+//     linear-gradient(-45deg, $bg 50%, transparent 50%),
+//     /* Left jagged */ linear-gradient(135deg, $bg 50%, transparent 50%),
+//     linear-gradient(45deg, $bg 50%, transparent 50%),
+//     /* Right jagged */ linear-gradient(-135deg, $bg 50%, transparent 50%),
+//     linear-gradient(-45deg, $bg 50%, transparent 50%);
+//   background-position:
+//     /* Top jagged */ top left, top left,
+//     /* Bottom jagged */ bottom left, bottom left, /* Left jagged */ top left,
+//     top left, /* Right jagged */ top right, top right;
+//   background-size: $width $width;
+//   background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-y, repeat-y,
+//     repeat-y, repeat-y;
+// }
+
+// .banner {
+//   padding: 20px;
+//   background-color: #eee;
+//   @include saw-tooth();
+// }
+
+// .banner-img,
+// .banner-header {
+//   color: #eee;
+//   background-color: #ccdceb;
+//   @include saw-tooth();
+// }
+
+// .banner-navbar {
+//   padding: 20px;
+//   color: #666;
+//   background-color: #ddd;
+//   @include saw-tooth();
+// }
+// // ==============================================================
+// .rotate {
+//   transform: rotate(45deg);
+// }
+
+// .logo {
+//   height: 100px;
+//   width: 100px;
+// }
+
+// .text-center {
+//   text-align: center;
+// }
+// .text-left {
+//   text-align: left;
+// }
+
+// .text-right {
+//   text-align: right;
+// }
+
+// .icon {
+//   // padding: 15px;
+//   box-shadow: 2px 0px 2px rgba(104, 99, 99, 0.2);
+//   border-radius: 10px;
+//   cursor: pointer;
+// }

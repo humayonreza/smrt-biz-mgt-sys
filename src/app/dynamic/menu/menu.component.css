@@ -1,0 +1,6 @@
+.myTab .NotActive {
+  border: 1px solid #ccc;
+}
+.myTab .Active {
+  border: 1px solid #f00;
+}

@@ -1,0 +1,304 @@
+<p>temp works!</p>
+<!-- <div class="row bgB">
+    <div class="row div-navbar text-center">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-sm-12 text-center" style="margin-top:55px;">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfigImg">
+            <div ngxSlickItem *ngFor="let data of arrSlider">
+                <img class="img-slider" src="{{ data.ImgPath }}" width="99%" height="250">
+            </div>
+        </ngx-slick-carousel>
+    </div>
+    <div id="about" class="col-sm-12 text-center" style="margin-top: 2px; 
+    border-bottom: thin solid #999;">
+        <div class="col-sm-offset-1 col-sm-10 box-info">
+            <div class="col-sm-12 txt-holder">
+                <span>Our Story</span>
+                <hr class="underline">
+            </div>
+            <div class="text-center txt-sm" style="font-weight: bold; font-style: oblique;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+    </div>
+    <div id="services" class="col-sm-12 text-center" style="padding-top:2px;">
+        <div class="col-sm-offset-1 col-sm-10 box-info">
+            <div class="col-sm-12 txt-holder">
+                <span>What We Offer</span>
+                <hr class="underline">
+            </div>
+            <div class="text-center">
+                <table class="table-form" align="center">
+                    <tr>
+                        <td class="col-sm-2" *ngFor="let data of arrServiceName"
+                            (click)="openDialog(1, data.ServiceId, data.ServiceName)">
+                            <div class="text-center" style="height:100px;">
+                                <div style="margin-bottom: 10px;">
+                                    <img class="{{ data.myClass }}"
+                                        src="{{ baseImgUrl + 'services/' + data.OrgId + data.ImgId +'.png' }}"
+                                        alt="Image not found"
+                                        style="width:75px; height:75px; border-radius: 75px; border: 5px double #ccc; cursor: pointer;">
+                                </div>
+                                <div class="txt-sm" style="font-weight: bold;">{{ data.ServiceName }}</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-offset-1 col-sm-10 box-info">
+            <div class="col-sm-12 txt-holder">
+                <span>Customer's Reviews</span>
+                <hr class="underline">
+            </div>
+            <div class="text-center">
+                <ngx-slick-carousel class="col-sm-12 carousel" #slickModal="slick-carousel" [config]="slideConfigTxt">
+                    <div ngxSlickItem *ngFor="let data of arrReview" class="slide text-center" style="border:none;">
+                        <div class="caption txt-sm">{{ data.Caption }}</div>
+                        <div class="caption">{{ data.Txt }}</div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact" class="col-sm-12 text-center" style="padding: 10px 20px 20px 20px;">
+        <div class="col-sm-offset-1 col-sm-10 box-info">
+            <div class="col-sm-4 inner">
+                <div class="col-sm-12 txt-holder">
+                    <span>Information</span>
+                    <hr class="underline">
+                </div>
+                <div class="panel-info text-left">
+                    <div class="row">
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = true" [expanded]="true">
+                                <mat-expansion-panel-header style="background: transparent;">
+                                    <mat-panel-title>
+                                        <div class="col-sm-12">
+                                            <div class="row txt-panel-title">
+                                                <i class="glyphicon glyphicon-time"></i>Operating Hour
+                                            </div>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="col-sm-12 text-center">
+                                    <div class="row">
+                                        <table width="100%" class="table-mat-expansion">
+                                            <thead>
+                                                <tr>
+                                                    <th>Day</th>
+                                                    <th>Lunch</th>
+                                                    <th>Dinner</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of arrWkTimeTable">
+                                                    <td>{{ data.viewValue }}</td>
+                                                    <td>{{ data.Lunch }}</td>
+                                                    <td>{{ data.Dinner }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <div class="col-sm-12">
+                                            <div class="row txt-panel-title">
+                                                <i class="glyphicon glyphicon-check"></i>Giftcards
+                                            </div>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Gift Cards
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <div class="col-sm-12">
+                                            <div class="row txt-panel-title">
+                                                <i class="glyphicon glyphicon-adjust"></i>Terms & Conditions
+                                            </div>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Terms & Conditions
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 inner">
+                <div class="col-sm-12 txt-holder">
+                    <span>Location</span>
+                    <hr class="underline">
+                </div>
+                <div class="panel-info">
+                    <div class="row">
+                        <div class="col-sm-12 div-map">
+                            <div class="row">
+                                <div class="col-sm-12 text-center" style="color: #000;">
+                                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                                        <agm-marker [latitude]="lat" [longitude]="lng">
+                                            <agm-info-window>
+                                                <div class="txt-md">Moments</div>
+                                                <div class="txt-xs">{{ address }}</div>
+                                            </agm-info-window>
+                                        </agm-marker>
+                                    </agm-map>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 div-parking">
+                            <div class="col-sm-12 txt-holder">
+                                <span>Premice & Parking</span>
+                                <hr class="underline">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top: 10px;">
+                                <div class="row">
+                                    <img src="{{ baseImgUrl + 'banner/home/bg/003.jpg' }}" alt="Los Angeles"
+                                        width="100%" height="150">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 txt-panel-title text-left" style="margin-top: 10px;">
+                                <div class="row">
+                                    <a style="text-decoration: none;"
+                                        href="https://maps.google.com/?q=Parking, Gungahlin Marketplace, Canberra, Australia">
+                                        <i class='fas fa-car' style='font-size:18px'></i>&nbsp;&nbsp; Car Park,
+                                        Gungahlin Marketplace
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 txt-panel-title text-left">
+                                <div class="row">
+                                    <a style="text-decoration: none;"
+                                        href="https://maps.google.com/?q=Westfield Carpark, Belconnen, Canberra, Australia">
+                                        <i class='fas fa-car' style='font-size:18px'></i>&nbsp;&nbsp; Car Park,
+                                        Westfield, Belconnen
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 txt-panel-title text-left">
+                                <div class="row">
+                                    <a style="text-decoration: none;"
+                                        href="https://maps.google.com/?q=Westfield Busstop, Belconnen, Canberra, Australia">
+                                        <i class='fas fa-car' style='font-size:18px'></i>&nbsp;&nbsp; Nearest Public
+                                        Transport
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 inner">
+                <div class="col-sm-12 txt-holder">
+                    <span>Contact us</span>
+                    <hr class="underline">
+                </div>
+                <div class="panel-info">
+                    <div class="row">
+                        <div class="col-sm-12 txt-panel-title text-left">
+                            <span class="glyphicon glyphicon-map-marker" style="margin-right:10px;"></span>
+                            24 Sunset Street Sydney, Au
+                        </div>
+                        <div class="col-sm-12 txt-panel-title text-left">
+                            <span class="glyphicon glyphicon-phone-alt" style="margin-right:10px;"></span>
+                            02 - 0234 0456
+                        </div>
+                        <div class="col-sm-12 txt-panel-title text-left">
+                            <span class="glyphicon glyphicon-envelope" style="margin-right:10px;"></span>
+                            moments@gmail.com
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <form #c="ngForm" (ngSubmit)="send_msg(c.value)" autocomplete="off">
+                                    <div class="col-sm-12" style="margin-top: 5px;">
+                                        <input type="text" id="ClientName" name="ClientName" [(ngModel)]="ClientName"
+                                            class="form-control input-style" placeholder="Your Name" required />
+                                        <span class="glyphicon glyphicon-user form-control-feedback"
+                                            style="margin-right: 20px;"></span>
+                                    </div>
+                                    <div class="col-sm-12" style="margin-top: 2px;">
+                                        <input type="text" id="ClientEmail" name="ClientEmail" [(ngModel)]="ClientEmail"
+                                            class="form-control input-style" placeholder="Your Email" required />
+                                        <span class="glyphicon glyphicon-envelope form-control-feedback"
+                                            style="margin-right: 20px;"></span>
+                                    </div>
+                                    <div class="col-sm-12" style="margin-top: 2px;">
+                                        <textarea rows="3" type="text" id="ClientMsg" name="ClientMsg"
+                                            [(ngModel)]="ClientMsg" class="form-control input-style"
+                                            placeholder="Your Message" required></textarea>
+                                        <span class="glyphicon glyphicon-edit form-control-feedback"
+                                            style="margin-right: 20px;"></span>
+                                    </div>
+                                    <div class="col-sm-12 text-left" style="margin-top: 5px;">
+                                        <button type="submit" class="btn btn-default btn-bg input-style">
+                                            Submit
+                                            <span class="glyphicon glyphicon-send" style="margin-left: 10px;"></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 div-parking" style="margin-top: 10px;">
+                            <div class="col-sm-12 txt-holder">
+                                <span>Join us</span>
+                                <hr class="underline">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="col-sm-12" style="margin-top: 10px;">
+                                        <div class="row">
+                                            <input type="text" id="ClientEmailSubscribe" name="ClientEmailSubscribe"
+                                                [(ngModel)]="ClientEmailSubscribe" class="form-control input-style"
+                                                placeholder="Your Email" required />
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"
+                                                style="margin-right: 15px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" style="margin-top: 2px;">
+                                        <div class="row">
+                                            <input type="text" id="ClientPhoneNo" name="ClientPhoneNo"
+                                                [(ngModel)]="ClientPhoneNo" class="form-control input-style"
+                                                placeholder="Phone | Optional" />
+                                            <span class="glyphicon glyphicon-phone-alt form-control-feedback"
+                                                style="margin-right: 15px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 txt-xs text-left" style="margin-top: 12px;">
+                                        <div class="row">
+                                            To subscribe and unsubscribe we need your email address as required field.
+                                            Contact number is required only if
+                                            you want us to send you message as text to your phone
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 text-left" style="margin-top: 10px;">
+                                        <div class="row">
+                                            <button type="submit" class="btn btn-default btn-bg input-style">
+                                                Submit
+                                                <span class="glyphicon glyphicon-send"
+                                                    style="margin-left: 10px;"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="height: 30px;">&nbsp;</div> -->

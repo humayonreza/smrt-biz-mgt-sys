@@ -1,0 +1,80 @@
+<!-- <div class="container"> -->
+<div class="col-sm-12 text-center" style="color: #eee;">
+    <div class="col-sm-12" style="margin-bottom: 90px;">
+        <app-navbar></app-navbar>
+    </div>
+    <!-- <div class="banner-img">
+        <div class="txt-xxl">{{ menuName }}</div>        
+    </div> -->
+    <div style="padding: 10px;">
+        <div class="col-sm-12 text-center txt-lg" style="border: 4px solid rgb(171, 189, 176);">
+            <table width="100%">
+                <tr>
+                    <td class="text-left"><i class="fa fa-chevron-circle-left" style="font-size: 30px; color: #999;"></i></td>
+                    <td>
+                        <div style="color: #777;">
+                            {{ menuName }} &nbsp;|&nbsp;
+                            <a style="text-decoration: none; cursor: pointer; font-size:small; color: #555;" (click)="view_all()">View
+                                All</a>
+                        </div>
+                    </td>
+                    <td class="text-right"><i class="fa fa-chevron-circle-right" style="font-size: 30px; color: #999;"></i></td>
+                </tr>
+            </table>            
+        </div>
+        <div class="col-sm-12" style="overflow-x: auto; border: 4px solid  rgb(171, 189, 176);">
+            <table class="table-form">
+                <tr>
+                    <td *ngFor="let data of arrSubMenu" style="overflow-x: auto;">
+                        <div class="banner-img" style="width: 150px; border-radius: 10px;"
+                            (click)="get_item_details(data.SubmenuId, data.SubmenuName)">
+                            <div>
+                                <img src="{{ imgUrl + 'icons/1001' + '_' + data.MenuId + '_' + data.SubmenuId +'.png' }}" alt="Image not found"
+                                    style="height: 60px; width: 60px;">
+                            </div>
+                            <div class="txt-bg" style="font-weight: bold; color: rgb(121, 28, 28);">{{ data.SubmenuName }}</div>
+                            <div class="txt-xs" style="height: 40px; color: rgb(114, 16, 16);">{{ data.SubmenuDesc }}</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- <div class="row" style="margin-top: 7px;">
+    <img src="{{ imgUrl + 'design/divider.png' }}" alt="" height="auto" width="100%">
+</div> -->
+<div class="col-sm-12" style="overflow-y:auto;">
+    <!-- <div class="banner-header" style="padding: 10px;">
+        <div class="text-center txt-lg" style="border: 4px solid rgb(171, 189, 176);">
+            <div>
+                {{ menuName }} &nbsp;|&nbsp;
+                <a style="text-decoration: none; cursor: pointer; font-size:small; color: #555;" (click)="view_all()">View All</a>
+            </div>
+        </div>
+    </div> -->
+    <div style="padding: 10px; margin-top: -10px;">
+        <div class="container" style="border: 4px solid rgb(171, 189, 176);">
+            <table width="100%" align="center" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="txt-bg">Description</th>
+                        <th class="txt-bg" style="width: 5%;">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of arrFilteredList" class="text-center">
+                        <td style="text-align: left; padding-left: 10px; font-weight: bold;">
+                            <div class="txt-bg">{{ data.ItemName }}</div>
+                            <div class="txt-xs">{{ data.ItemDesc }}</div>
+                        </td>
+                        <td class="txt-bg" style="text-align: left; padding-left: 10px; width: 5%;" valign="top">
+                            {{"$" + data.Price}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>
+<!-- </div> -->

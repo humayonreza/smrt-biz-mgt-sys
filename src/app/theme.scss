@@ -1,0 +1,839 @@
+// ============ SCSS Variable Design 01 ====================
+// $colorMix1: #e62e00;
+// $colorMix2: #ff4000;
+// $bgColorBody: #00004d;
+// $bgColorNav: #fff;
+// $txtColorNav: #000;
+// $bgColorFooter: #fff;
+// $txtColorFooter: #000;
+// $txtColor: #ddd;
+// $borderColorTable: #fff;
+// $borderColorSlickDot: #fff;
+// $borderColorPanelInfo: #fff;
+// $bgColorImage: #fa0707;
+// $bgInput: #ff4000;
+// $borderInput: #ccc;
+// ============ SCSS Variable Design 02 ===================================
+$colorMix1: #fff;
+$colorMix2: #ddd;
+$bgColorBody: #fff;
+$bgColorNav: #e62e00;
+$txtColorNav: #fff;
+$bgColorFooter: #e62e00;
+$txtColorFooter: #fff;
+$txtColor: #00004d;
+$borderColorTable: #ccc;
+$borderColorSlickDot: #777;
+$borderColorPanelInfo: #777;
+$bgColorImage: #ddd;
+$bgInput: #eee;
+$borderInput: #999;
+// ===============================================
+
+// ===============================================
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: $txtColor;
+  margin: 0;
+  background-color: $bgColorBody;
+  // background-image: url("http://localhost:8080/backendRESTAURANT/images/background/002.png");
+  // background-image: url("https://app-dev.online/backendRESTAURANT/images/background/003.png");
+  // background: linear-gradient(to bottom, $colorMix1 0%, $colorMix2 100%);
+}
+::-webkit-scrollbar {
+  width: 0px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0px rgb(99, 111, 131);
+  border-radius: 0px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  border-bottom: 0px solid #ddd;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-bottom: 0px solid #ccc;
+  cursor: pointer;
+}
+
+.mat-expansion-panel {
+  background: transparent;
+  margin: 0px;
+  padding: 0px;
+  color: #ccc;
+}
+// =========== NAVBAR ===========================
+.navbar {
+  top: 0;
+  position: fixed;
+  margin-bottom: 0;
+  z-index: 9999;
+  border-bottom: thin solid #fff;
+  background-color: $bgColorNav;
+  line-height: 1.42857143 !important;
+  border-radius: 0;
+  // height: 70px;
+}
+.navbar li a,
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: $txtColorNav !important;
+  transition: 0.5s;
+  font-size: 13px;
+}
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #fff;
+  background-color: rgb(33, 27, 54) !important;
+  transition: 0.5s;
+}
+// ========== input | select ======================
+.input-style {
+  background: transparent; //$bgInput;
+  font-family: "Arial";
+  border: thin solid $borderInput;
+  color: $txtColor;
+  padding: 5px 10px 5px 10px;
+}
+
+// ========== Table ================================
+.tableX td {
+  border: thin solid $borderColorTable;
+  padding: 5px 10px 5px 10px;
+}
+.table i {
+  font-size: 25px;
+  color: rgb(231, 224, 224);
+}
+// ============= Panel Info =========================
+.panel-info {
+  overflow-y: auto;
+  padding: 20px;
+  height: 700px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(61, 57, 56, 0.2);
+  border: thin solid $borderColorPanelInfo;
+  color: $txtColor;
+}
+.panel-sm {
+  overflow-y: auto;
+  padding: 20px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(61, 57, 56, 0.2);
+  border: thin solid $borderColorPanelInfo;
+  color: $txtColor;
+}
+// =================================================
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: $bgColorFooter;
+  color: #fff;
+  text-align: center;
+  padding: 8px 10px 5px 10px;
+}
+
+mat-label {
+  font-family: "Arial";
+  font-size: 13px;
+}
+
+// input {
+//   margin-top: 10px;
+// }
+
+.footer a {
+  margin-right: 10px;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.footer a:hover {
+  color: #fff;
+  font-weight: bold;
+}
+// ==================== Image ======================
+.img-slider {
+  // background-color: $bgColorImage;
+  border-radius: 5px;
+  // box-shadow: 5px 0px 40px rgba(71, 66, 63, 0.2);
+  // transition: 0.6s;
+}
+// ===================== HR =========================
+.hrB {
+  display: block;
+  border: none !important;
+  border: 0px;
+  height: 3px;
+  background-image: url("http://localhost:8080/backendRESTAURANT/images/design/divider3.png");
+  // background-image: url("https://app-dev.online/backendRESTAURANT/images/background/divider3.png");
+}
+
+hr .hrA {
+  border-top: 1px dashed #999;
+}
+
+// ==================== Table =======================
+.slick-slider {
+  width: 100%;
+}
+
+.slick-dots li {
+  border: thin solid $borderColorSlickDot;
+  border-radius: 50%;
+}
+
+.slick-dots li.slick-active {
+  border-radius: 10%;
+}
+
+.slick-dots li:hover {
+  border-radius: 10%;
+}
+.table-mat-expansion,
+.table-menu {
+  color: $txtColor;
+}
+.table-mat-expansion th,
+.table-mat-expansion td,
+.table-menu th,
+.table-menu td {
+  // border: 2px solid $borderColorTable;
+  padding: 5px;
+  text-align: center;
+}
+
+.table-item-list th,
+.table-item-list td {
+  border: 2px solid $borderColorTable;
+  padding: 5px;
+  text-align: center;
+}
+.table-item-list tr {
+  box-shadow: 2px 2px 2px rgba(161, 100, 100, 0.2);
+}
+
+.table-item-list tr:hover {
+  box-shadow: 2px 5px 10px rgba(136, 121, 121, 0.2);
+  background-color: #eee;
+}
+
+.table-regular td {
+  padding: 5px;
+  text-align: center;
+}
+
+.table-regular th {
+  background-color: green;
+  color: #fff;
+  padding: 5px;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.table-item-category th,
+.table-item-category td {
+  padding: 5px;
+}
+
+.table-items th,
+.table-items td {
+  border: thin solid $borderColorTable;
+  padding: 5px;
+  text-align: center;
+}
+
+.table-services th,
+.table-services td {
+  border: thin solid $borderColorTable;
+  padding: 5px;
+  text-align: center;
+}
+.txt-panel-title {
+  color: $txtColor;
+  font-size: 14px;
+}
+.txt-panel-title a {
+  color: $txtColor;
+}
+// ==================== HR ==========================
+
+// ==================== Font Size ===================
+.txt-xxl {
+  font-size: 40px;
+  font-weight: bold;
+}
+.txt-xl {
+  font-size: 30px;
+  font-weight: bold;
+}
+.txt-lg {
+  font-size: 25px;
+  font-weight: bold;
+}
+.txt-bg {
+  font-size: 20px;
+}
+.txt-md {
+  font-size: 18px;
+}
+
+.txt-sm {
+  font-size: 16px;
+}
+.txt-xs {
+  font-size: 12px;
+}
+
+.txt-xxs {
+  font-size: 10px;
+}
+.txt-row-title {
+  color: #000;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 3px;
+  font-weight: bold;
+  padding: 0px 17px 0px 25px;
+  letter-spacing: 1.5px;
+  color: $txtColor;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+// ================== Design Div =====================
+.box-info {
+  padding: 5px 15px 15px 15px;
+  // margin-top: 20px;
+  // border: 2px dashed $borderColorTable;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.featured {
+  height: 250px;
+  width: 140px;
+  border-radius: 5px;
+  padding-top: 10px;
+  box-shadow: 2px 10px 20px rgba(161, 100, 100, 0.2);
+  border: thin solid #ddd;
+}
+
+.featured:hover {
+  box-shadow: 10px 20px 30px rgba(146, 49, 49, 0.5);
+  border: 1px solid #ccc;
+}
+// ===================================================
+
+.bgA {
+  background-image: url("http://localhost:8080/backendRESTAURANT/images/background/001.png");
+  // background-image: url("https://app-dev.online/backendRESTAURANT/images/background/003.png");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // border-bottom: thin solid #000;
+}
+.bgB {
+  background-image: url("http://localhost:8080/backendRESTAURANT/images/background/002.png");
+  // background-image: url("https://app-dev.online/backendRESTAURANT/images/background/002.png");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // border-bottom: thin dashed #888;
+}
+.bgC {
+  // background-image: url("http://localhost:8080/backendRESTAURANT/images/background/007.png");
+  background-image: url("https://app-dev.online/backendRESTAURANT/images/background/007.png");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: thin dashed #888;
+}
+
+.bgD {
+  background-image: url("http://localhost:8080/backendRESTAURANT/images/background/006.png");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: thin dashed #888;
+}
+
+// .bgA2 {
+//   // background-image: url("http://localhost:8080/backendRESTAURANT/images/background/004.png");
+//   background-image: url("https://app-dev.online/backendRESTAURANT/images/background/004.png");
+//   height: auto;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+// .bgA3 {
+//   // background-image: url("http://localhost:8080/backendRESTAURANT/images/background/004.png");
+//   background-image: url("https://app-dev.online/backendRESTAURANT/images/background/004.png");
+//   height: auto;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+.t2-div-slider {
+  box-shadow: 2px 0px 2px rgba(211, 208, 208, 0.2);
+  border-radius: 10px;
+}
+
+.btn-lg {
+  margin-right: 3px;
+  width: 90px;
+}
+
+.container-fluid {
+  padding: 20px 10px;
+}
+.bg-grey {
+  background-color: #f6f6f6;
+  padding: 5px 0px 0px 5px;
+  // border-top: thin solid #ddd;
+  border-bottom: 8px #ddd;
+  border-style: none none double none;
+}
+.panel-title {
+  padding: 5px 20px 10px 20px;
+  font-weight: bold;
+}
+.testimony {
+  padding: 25px 10px 10px 30px;
+  height: 150px;
+}
+
+.img-services {
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px rgba(71, 66, 63, 0.2);
+  opacity: 0.6;
+  transition: 0.6s;
+  width: 180px;
+  height: 180px;
+}
+
+.img-services:hover {
+  border-radius: 5%;
+  opacity: 1;
+  border: thin solid #999;
+  transition: 0.6s;
+}
+.not-active-btn {
+  border: thin solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-color: lightyellow;
+  color: #000;
+}
+.active-btn {
+  border: thin solid #ccc;
+  outline: none;
+  background-color: rgb(57, 66, 116);
+  color: #fff;
+}
+.not-active-menu {
+  padding: 5px;
+  background-color: #fff;
+  border: thin solid #ccc;
+  border-radius: 50%;
+  // box-shadow: 15px 20px 30px rgba(219, 210, 210, 0.3);
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.active-menu {
+  padding: 5px;
+  background-color: lightyellow;
+  border: 3px solid #ff0;
+  border-radius: 50%;
+  box-shadow: 2px 5px 10px rgba(248, 224, 3, 0.3);
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
+// .active-menu-img {
+//   padding: 3px 10px 3px 10px;
+//   margin-right: 4px;
+//   color: blue;
+//   cursor: pointer;
+//   border-bottom: 2px solid blue;
+//   transition: 0.5s;
+// }
+// .not-active-menu-img {
+//   padding: 3px 10px 3px 10px;
+//   margin-right: 4px;
+//   color: #222;
+//   cursor: pointer;
+//   transition: 0.5s;
+// }
+
+.t5-img {
+  padding: 2px;
+  background-color: #ccdceb;
+  border: thin solid #ccc;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  opacity: 0.9;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.t5-img:hover {
+  opacity: 1;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+.txt-holder {
+  padding: 0px 5px 0px 5px;
+  text-shadow: 0px 2px #cec6c6;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.txt-holder:hover {
+  letter-spacing: 1px;
+  font-weight: bold;
+  .underline {
+    width: 50px;
+    border: 1px solid #555;
+  }
+  transition: 0.5s;
+}
+
+.carousel-indicators li {
+  background-color: rgb(202, 197, 219);
+  border: thin solid rgb(232, 184, 236);
+  box-shadow: 5px 0px 40px rgba(71, 66, 63, 0.2);
+  padding: 5px;
+  height: 10px;
+  width: 10px;
+}
+
+.divider {
+  box-shadow: 5px 0px 40px rgba(71, 66, 63, 0.2);
+}
+
+.underline {
+  width: 30px;
+  border: thin solid #555;
+  transition: 0.5s;
+}
+
+agm-map {
+  height: 259px;
+}
+.div-map,
+.div-parking {
+  border-radius: 10px;
+  padding: 0px 10px 10px 10px;
+}
+
+.testimony .item {
+  // height: 200px;
+  padding: 0px 20px 0px 20px;
+  font-family: Charcoal;
+}
+.frameB {
+  padding: 10px;
+}
+.inner {
+  padding-left: 10px;
+}
+.frameC {
+  overflow-y: auto;
+  padding: 20px;
+  height: 620px;
+  border-radius: 8px;
+  box-shadow: 12px 10px 10px rgba(150, 142, 140, 0.2);
+  border: thin solid #333;
+}
+.frameC:hover {
+  box-shadow: 2px 13px 15px rgba(94, 88, 85, 0.2);
+}
+.frameD {
+  padding: 0px 20px 0px 20px;
+}
+
+mat-panel-title i {
+  margin-right: 15px;
+}
+// ========= Mat Button ==============================
+.mat-btn-toggle-category {
+  padding: 8px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+// ========== Mat Extension panel =====================
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+// ==========  Media Query =========================
+
+@media screen and (max-width: 450px) {
+  .txt-lg {
+    font-size: 18px;
+  }
+  .frameD {
+    padding: 0px 0px 0px 0px;
+  }
+  .panel-info {
+    height: auto;
+    box-shadow: 0px 0px 0px rgba(104, 102, 101, 0.2);
+  }
+  .navbar {
+    top: 0;
+    position: fixed;
+    margin-bottom: 0;
+    z-index: 9999;
+    // border-bottom: thin solid #fff;
+    background-color: $bgColorNav;
+    line-height: 1.42857143 !important;
+    border-radius: 0;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 362px) {
+  .td-classA {
+    width: 30%;
+  }
+  .td-classB {
+    width: 35%;
+  }
+}
+// ============ Text ================
+// .txt-header-md {
+//   font-size: 16px;
+//   letter-spacing: 1.5px;
+//   font-weight: bold;
+// }
+// .txt-header-md i {
+//   font-size: 20px;
+// }
+
+.span-image-upload {
+  border-radius: 8px;
+  padding: 7px 20px 9px 20px;
+  border: thin solid #ddd;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  // font-family: "Algerian";
+}
+.form-group {
+  padding: 0;
+  margin: 0;
+}
+.input-sm {
+  font-size: 14px;
+  color: #888;
+  padding: 1px 10px 1px 10px;
+  margin: 1px;
+}
+
+.lbl-allergy-name {
+  width: 100px;
+  color: #888;
+}
+
+.lbl-form {
+  font-size: 12px;
+  color: #888;
+  padding: 1px;
+  margin: 1px;
+}
+
+.frame-regular {
+  padding: 1px 1px 10px 1px;
+  max-height: 400px;
+  border: thin solid #ddd;
+  border-radius: 8px;
+}
+
+.frameX {
+  padding: 20px;
+  height: 350px;
+  border: thin solid #ddd;
+  border-radius: 8px;
+}
+.frameY {
+  padding: 20px;
+  height: 420px;
+  border: thin solid #ddd;
+  border-radius: 8px;
+}
+.frameZ {
+  padding: 5px 20px 5px 20px;
+  background-image: url("http://localhost:8080/backendRESTAURANT/images/background/004.png");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: thin solid #ddd;
+  border-radius: 8px;
+}
+
+.TabKS td {
+  padding: 2px 5px 2px 5px;
+}
+
+.btnA {
+  border: thin solid #eee;
+  margin-right: 10px;
+}
+
+.active {
+  padding: 3px 10px 3px 10px;
+  margin-right: 4px;
+  color: blue;
+  cursor: pointer;
+  // border-bottom: 2px solid blue;
+  // transition: 0.5s;
+}
+.not-active {
+  padding: 3px 10px 3px 10px;
+  margin-right: 4px;
+  color: #222;
+  cursor: pointer;
+  // transition: 0.5s;
+}
+
+.active:hover,
+.not-active:hover {
+  color: blue;
+  border-bottom: thin solid blue;
+  transition: 0.5s;
+}
+
+.frameD {
+  height: 250px;
+}
+mat-raised-button {
+  border-radius: 15px;
+  margin-right: 10px;
+}
+.btnStyle1 {
+  font-size: 16px;
+  transition: 0.5s;
+  width: 90px;
+  padding: 10px;
+  margin-right: 5px;
+}
+.btnStyle1:hover {
+  box-shadow: 5px 10px 10px rgba(61, 57, 56, 0.2);
+  transition: 0.5s;
+}
+.input-width-full {
+  width: 100%;
+}
+
+.table-condensed table {
+  border: none;
+}
+
+.table-condensed tr,
+.table-condensed td,
+.table-condensed th {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.td-classA {
+  width: 15%;
+}
+.td-classB {
+  width: 15%;
+}
+.icon-counter {
+  cursor: pointer;
+  margin: 4px;
+  font-size: 22px;
+  color: #555;
+}
+.shadow-light {
+  border-radius: 10px;
+  height: 510px;
+  box-shadow: 5px 10px 20px rgba(126, 123, 122, 0.2);
+}
+.shadow-dark {
+  border-radius: 10px;
+  height: 580px;
+  box-shadow: 5px 10px 20px rgba(126, 123, 122, 0.2);
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn-file {
+  border: thin solid gray;
+  color: gray;
+  background-color: white;
+  /* padding: 4px 10px; */
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  /* font-size: 100px; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

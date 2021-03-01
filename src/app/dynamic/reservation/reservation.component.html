@@ -1,0 +1,138 @@
+<div class="col-sm-12">
+    <div class="row div-navbar text-center">
+        <app-navbar></app-navbar>
+    </div>
+    <div style="margin-top:75px;" class="row col-md-offset-3 col-sm-6">
+        <div class="col-sm-12 txt-holder text-center" style="margin-top:5px;">
+            <span>BOOK A TABLE</span>
+            <div class="txt-sm">Power by RC92</div>
+            <hr class="underline">
+        </div>
+        <div class="col-sm-12 txt-holder text-center" style="margin-top:5px; padding: 0px 20px 0px 20px;">
+            <form #b="ngForm" (ngSubmit)="processBookingRequest(b.value, 1)" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-12">
+                    <mat-form-field class="input-width-full">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput type="text" name="FullName" [(ngModel)]="FullName"  id="FullName" placeholder="Full Name" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <mat-form-field class="input-width-full">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput id="Email" name="Email" [(ngModel)]="Email"  required
+                        placeholder="Email" >
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <mat-form-field class="input-width-full">
+                        <mat-label>Contact No</mat-label>
+                        <input matInput type="tel" id="ContactNo" name="ContactNo" [(ngModel)]="ContactNo" 
+                        placeholder="Contact Number" >
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <mat-form-field class="input-width-full" style="padding:0; margin:0;">
+                        <mat-label>No of Guest</mat-label>
+                        <input matInput type="number" id="TotalGuest" name="TotalGuest" [(ngModel)]="TotalGuest" 
+                        placeholder="Total Guest">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <mat-form-field appearance="" style="width: 100%;">
+                        <mat-label>Booking Date</mat-label>
+                        <input id="BookingDate" name="BookingDate" [(ngModel)]="BookingDate" matInput [matDatepicker]="picker" placeholder="Pick a Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                
+            </div>
+            <div class="row" style="margin-top: 15px;">
+                <button class="btnStyle1 btn btn-default" type="button" (click)="selectSession(1)">Lunch</button>
+                <button class="btnStyle1 btn btn-default" type="button" (click)="selectSession(2)">Dinner</button>
+            </div>
+            <div class="row" *ngIf="onErr" style="margin-top: 15px;">
+                <h4 style="color: brown;">
+                    Enter Booking Date and Total Guest Entry
+                </h4>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-sm-12 pull-center" *ngIf="viewSlots" style="margin-top: 25px;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div class="row col-sm-12 pull-center">
+                                    <div class="pull-center">
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <button type="button" mat-mini-fab color="default">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </button>
+                                                    <label style="font-size: 14px; font-weight: bold;margin: 0px 10px 0px 10px;">
+                                                        {{ EventName }} on
+                                                        {{ BookingDate | date: format:"M/d/yy" }}
+                                                    </label>
+                                                    <button type="button" mat-mini-fab color="default">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <button *ngFor="let data of ArrSelectedBookingSlot" class="btnStyle1 btn btn-primary" type="button" 
+                                            (click)="setBookingTime(data.SlotTime)" style="margin: 5px;">
+                                            <div style="padding: 0; margin:0">{{ data.SlotTime }}</div>
+                                            <div class="txt-xs" style="padding: 0; margin:0; background-color:#eee;color: #000;">&nbsp;&nbsp;{{ data.ReservationState + ' left' }}&nbsp;&nbsp;</div>
+                                        </button>
+                                    </div>
+                                    <div class="txt-sm" style="margin: 10px 2px 3px 2px;">
+                                        {{ SelectedBookingSlot }}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" id="BookingSlot" name="BookingSlot" [(ngModel)]="BookingSlot" />
+                                <input type="hidden" id="SessionId" name="SessionId" [(ngModel)]="SessionId" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 3px; text-align: center;">
+                                <div *ngIf="isReserveFull" style="color: brown;" class="pull-center">
+                                    <h5>
+                                        <p>
+                                            {{ MessageOnUnsuccess }}
+                                        </p>
+                                        <p>
+                                            Please Call Manager to Arrange Booking for this
+                                            Slot.
+                                        </p>
+                                    </h5>
+                                </div>
+                                <div *ngIf="isSubmit">
+                                    <button class="btnStyle1 btn btn-default" type="submit">
+                                        Submit
+                                    </button>
+                                    <button class="btnStyle1 btn btn-default" type="button" (click)="resetBookingForm()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-sm-12" style="height: 100px;">&nbsp;</div>
+    </div>
+</div>
+<div class="col-sm-12 footer">
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(1)">RESERVATION</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(2)">MENU</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(3)">TAKEAWAY</a>
+</div>

@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="row div-navbar text-center">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center" style="margin-top: 75px">
+      <ngx-slick-carousel
+        #slickModal="slick-carousel"
+        [config]="slideConfigBanner"
+      >
+        <div ngxSlickItem *ngFor="let data of arrBannerImg">
+          <img
+            src="{{ data.ImgPath }}"
+            width="100%"
+            height="320"
+            style="border: thin solid #fff"
+          />
+        </div>
+      </ngx-slick-carousel>
+    </div>
+    <!-- <div class="col-sm-12 text-center" style="margin-top:55px;">
+            <img src="{{ srcBanner }}" alt="Los Angeles" width="100%" height="auto">
+        </div> -->
+    <div
+      id="story"
+      class="col-sm-12 text-center"
+      style="margin-top: 10px; padding: 10px 25px 10px 25px"
+    >
+      <div class="col-sm-offset-1 col-sm-10 box-info">
+        <div class="col-sm-12 txt-holder">
+          <!-- <img src="{{ SrcLogoChef }}" alt="" width="80" height="80"> -->
+          <div>
+            <i class="fa fa-coffee" style="font-size: 40px; color: brown"></i>
+          </div>
+          <div><span style="color: brown">Our Story</span></div>
+          <hr class="underline" />
+        </div>
+        <div
+          class="text-center txt-sm"
+          style="letter-spacing: 1px; color: brown"
+        >
+          {{ OrgStory }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 txt-holder text-center" style="margin-top: 20px">
+    <div>
+      <i class="fa fa-cutlery" style="font-size: 40px; color: brown"></i>
+    </div>
+    <div><span style="color: brown">Our Offer</span></div>
+    <hr class="underline" />
+  </div>
+  <!-- class="img-slider" -->
+  <div class="col-sm-12 text-center" style="margin-top: 10px">
+    <div class="row">
+      <ngx-slick-carousel
+        #slickModal="slick-carousel"
+        [config]="slideConfigImg"
+      >
+        <div ngxSlickItem *ngFor="let data of arrSliderImg">
+          <img
+            src="{{ data.ImgPath }}"
+            width="100%"
+            height="280"
+            style="border: thin solid #fff"
+          />
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div
+    id="services"
+    class="col-sm-12 text-center"
+    style="padding: 30px 2px 50px 2px; background-color: #eee"
+  >
+    <div class="col-sm-offset-1 col-sm-10 box-info">
+      <div class="text-center">
+        <table width="100%" align="center">
+          <tr>
+            <td *ngFor="let data of arrServiceHead">
+              <div
+                class="text-center"
+                style="height: 100px"
+                (click)="openDialog(1, data.Value, data.TxtMain)"
+              >
+                <div style="margin-bottom: 10px">
+                  <img
+                    class="{{ data.ClassName }}"
+                    src="{{ data.ImgPath }}"
+                    alt="Image not found"
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      border-radius: 70px;
+                      border: thin solid;
+                      cursor: pointer;
+                    "
+                  />
+                </div>
+                <div style="font-weight: bold; font-size: 15px; color: brown">
+                  {{ data.TxtMain }}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    id="review"
+    class="col-sm-12 text-center"
+    style="padding-top: 2px; height: 250px; margin-top: 30px"
+  >
+    <div class="col-sm-12">
+      <div>
+        <i class="fa fa-star-half-o" style="font-size: 40px; color: brown"></i>
+        <i class="fa fa-star-half-o" style="font-size: 40px; color: brown"></i>
+        <i class="fa fa-star-half-o" style="font-size: 40px; color: brown"></i>
+      </div>
+      <div class="txt-holder">
+        <span style="color: brown">Reviews</span>
+
+        <hr class="underline" />
+      </div>
+      <div class="text-center">
+        <ngx-slick-carousel
+          class="col-sm-12 carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfigReview"
+        >
+          <div
+            ngxSlickItem
+            *ngFor="let data of arrReview"
+            class="col-sm-12 slide text-center"
+          >
+            <table width="100%">
+              <tr>
+                <td class="txt-sm" style="font-weight: bold; color: brown">
+                  {{ data.TxtMain }}
+                </td>
+              </tr>
+              <tr>
+                <td class="txt-xs" style="color: #555">{{ data.TxtSm }}</td>
+              </tr>
+            </table>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12" style="height: 40px">&nbsp;</div>
+<div class="col-sm-12 footer">
+  <a style="text-decoration: none" class="btn btn-sm" (click)="open_page(1)"
+    >RESERVATION</a
+  >
+  <a style="text-decoration: none" class="btn btn-sm" (click)="open_page(2)"
+    >MENU</a
+  >
+  <a style="text-decoration: none" class="btn btn-sm" (click)="open_page(3)"
+    >TAKEAWAY</a
+  >
+</div>

@@ -1,0 +1,400 @@
+<div class="row">
+    <div class="row div-navbar text-center">
+        <app-navbarsetup></app-navbarsetup>
+    </div>
+   
+    <div id="setup-menu" class="row text-center divider" style="padding-top:85px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding-bottom: 30px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Setup Menu</span>
+                <hr class="underline">
+            </div>
+            <h4 class="text-left" style="letter-spacing: 1.5px;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h4>
+        </div>
+    </div>
+    <div id="setup-menu" class="row text-center divider" style="padding-top:15px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding: 20px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Create Menu</span>
+                <hr class="underline">
+            </div>
+            <div class="row">
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    <img src="{{ imgUrl + 'design/add_menu.png' }}" alt="" height="100%" width="100%">
+                </div>
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    <div class="col-sm-12">
+                        <form #m="ngForm" (ngSubmit)="create_update_menu(m.value)" autocomplete="off">
+                            <div class="form-group text-left">
+                                <label for="MenuId" class="lbl-form">MenuName</label>
+                                <select id="MenuId" name="MenuId" [(ngModel)]="MenuId" class="form-control input-sm">
+                                    <option *ngFor="let data of arrMenuParam" [value]="data.LookupValue">
+                                        {{ data.LookupTitle }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group text-left">
+                                <label for="MenuDesc" class="lbl-form">Description</label>
+                                <textarea rows="2" type="text" class="form-control input-sm" id="MenuDesc" name="MenuDesc" [(ngModel)]="MenuDesc"></textarea>
+                            </div>
+                            <div>
+                                <input type="hidden" id="MenuSer" name="MenuSer" [(ngModel)]="MenuSer"/>
+                                <input type="hidden" id="MenuImgId" name="MenuImgId" [(ngModel)]="MenuImgId"/>
+                            </div>
+                            <div class="col-sm-12 text-left" style="margin-top: 20px;">
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <td valign="top">
+                                                <div class="upload-btn-wrapper" style="cursor: pointer">
+                                                    <button class="btn btn-bg btn-default">Image</button>
+                                                    <input #fileToUpload (change)="onFileSelected($event, 1)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td valign="top">
+                                                <button type="submit" class="btn btn-default btn-bg">{{ MenuSubmit }}</button>
+                                            </td>
+                                            <td valign="top">
+                                                <button type="button" (click)="form_reset(1)" class="btn btn-default btn-bg">Reset</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="row text-left txt-xxs" style="margin-top: 1px; padding-left: 10px;">{{ SelectedImageMenu }}</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    How to add a menu...
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div id="setup-menu" class="row text-center divider" style="padding-top:15px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding: 20px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Menu List</span>
+                <hr class="underline">
+            </div>
+            <div class="col-sm-12" style="overflow-x: auto;">
+                <table class="table-form" align="center">
+                    <tr>
+                        <td *ngFor="let data of arrMenu">
+                            <div class="col-sm-3 text-center" style="width: 150px; border : thin solid #000;">
+                                <div>
+                                    <img src="{{ imgUrl + 'menu/' +  data.OrgId  +  data.ImgId +'.png' }}" alt="Image not found" style="height: 60px; width: 60px;" (click)="edit_menu(data, 0)">
+                                </div>
+                                <div>{{ data.MenuName }}</div>
+                                <div style="border-top: thin solid #ccc;">
+                                    <table width="100%" class="table-form">
+                                        <Caption class="txt-xs text-center">Update</Caption>
+                                        <tr>
+                                            <td>
+                                                <div class="row text-center" (click)="edit_menu(data, 0)">
+                                                    <div><i class="fa fa-file-text"></i></div>
+                                                    <div class="txt-xxs">Info</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="row text-center">
+                                                    <div><i class="fa fa-file-photo-o" (click)="edit_menu(data, 1)"></i></div>
+                                                    <div class="txt-xxs">Image</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div id="setup-menu" class="row text-center divider" style="padding-top:15px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding: 20px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Create Item</span>
+                <div class="txt-xxs">{{ SelectedMenuItem }}</div>
+                
+                <hr class="underline">
+            </div>
+            <div class="col-sm-12 txt-sm" style="padding: 20px">
+                <table class="table-regular" align="center"> 
+                    <tr>
+                        <td *ngFor="let data of arrMenu" class="{{ data.myClass }}">
+                            <div>
+                                <mat-radio-button name="Category" value="menu-radio" 
+                                (click)="select_item_by_menu(data.MenuId, data.MenuName)"></mat-radio-button>
+                            </div>
+                            <div class="txt-xs" style="width: 60px;">
+                                {{ data.MenuName }}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="row">    
+                <div class="col-sm-12 text-left txt-md">
+                    Select a Menu from Menulist. Select either of the option button to create items as per the selected menu. (Breakfast | Lunch | Dinner | Drinks)
+                </div>
+                <div class="col-sm-12" style="margin-bottom: 10px;">
+                    <form #e="ngForm" (ngSubmit)="create_update_items(e.value)" autocomplete="off">
+                        <div class="row">
+                            <div class="col-sm-4 frameY">
+                                <img src="{{ imgUrl + 'design/add_menu.png' }}" alt="" height="100%" width="100%">
+                            </div>
+                            <div class="col-sm-4 frameY">
+                                <div class="form-group text-left">
+                                    <label for="ItemName" class="lbl-form">Item Name</label>
+                                    <input type="text" class="form-control input-sm" id="ItemName" name="ItemName" [(ngModel)]="ItemName" placeholder="Iten Name">
+                                </div>
+                                <div class="form-group text-left">
+                                    <label for="ItemDesc" class="lbl-form">Description</label>
+                                    <textarea rows="2" type="text" class="form-control input-sm" id="ItemDesc" name="ItemDesc" [(ngModel)]="ItemDesc"></textarea>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label for="ItemOriginId" class="lbl-form">Country Origin</label>
+                                    <select id="ItemOriginId" name="ItemOriginId" [(ngModel)]="ItemOriginId" class="form-control input-sm">
+                                        <option [disabled]="data.OptVal == 0 ? true : false" *ngFor="let data of arrCountryOrigin" [value]="data.OptVal">
+                                            {{ data.OptTxt }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 text-left">
+                                        <div class="form-group text-left">
+                                            <label for="UnitCost" class="lbl-form">Unit Cost</label>
+                                            <input type="text" class="form-control input-sm" id="UnitCost" name="UnitCost" [(ngModel)]="UnitCost" placeholder="Cost per unit">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <div class="row form-group text-left">
+                                            <label for="ItemPrice" class="lbl-form">Price</label>
+                                            <input type="text" class="form-control input-sm" id="ItemPrice" name="ItemPrice" [(ngModel)]="ItemPrice" placeholder="Selling price">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 text-left">
+                                        <div class="form-group text-left">
+                                            <label for="IsOfferExist" class="lbl-form">Offer | Spacial(Y | N)</label>
+                                            <select id="IsOfferExist" name="IsOfferExist" 
+                                            [(ngModel)]="IsOfferExist" class="form-control input-sm">
+                                                <option *ngFor="let data of arrDecision" 
+                                                [value]="data.OptVal">
+                                                    {{ data.OptTxt }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <div class="row form-group text-left">
+                                            <label for="AmtOffer" class="lbl-form">Amount of Offer</label>
+                                            <input type="text" class="form-control input-sm" id="AmtOffer" name="AmtOffer" [(ngModel)]="AmtOffer" placeholder="Amount reduced in %">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 text-left">
+                                        <div class="form-group text-left">
+                                            <label for="CategoryId" class="lbl-form">Category</label>
+                                            <select id="CategoryId" name="CategoryId" [(ngModel)]="CategoryId" class="form-control input-sm">
+                                                <option *ngFor="let data of arrServiceCategory" [value]="data.OptVal">
+                                                    {{ data.OptTxt }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <div class="row form-group text-left">
+                                            <label for="IsVegetarian" class="lbl-form">Veg | Vegan Option(Y | N)</label>
+                                            <select id="IsVegetarian" name="IsVegetarian" [(ngModel)]="IsVegetarian" class="form-control input-sm">
+                                                <option *ngFor="let data of arrDecision" [value]="data.OptVal">
+                                                    {{ data.OptTxt }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 text-left">
+                                        <div class="form-group text-left">
+                                            <label for="IsFeatured" class="lbl-form">Featured Item (Y | N)</label>
+                                            <select id="IsFeatured" name="IsFeatured" [(ngModel)]="IsFeatured" class="form-control input-sm">
+                                                <option *ngFor="let data of arrDecision" [value]="data.OptVal">
+                                                    {{ data.OptTxt }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-left">
+                                        <div class="form-group text-left">
+                                            <label for="IsDiscontinued" class="lbl-form">Discontinued (Y | N)</label>
+                                            <select id="IsDiscontinued" name="IsDiscontinued" [(ngModel)]="IsDiscontinued" class="form-control input-sm">
+                                                <option *ngFor="let data of arrDecision" [value]="data.OptVal">
+                                                    {{ data.OptTxt }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 frameY">
+                                <label class="lbl-form" style="margin-right: 15px;">Allergic (Y | N)</label>
+                                <mat-radio-group>
+                                    <mat-radio-button [checked]="IsAllergic == 0 ? false : true" (click)="isAllergicFood(1)" value="after" style="margin-right: 20px;">Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button [checked]="IsAllergic == 0 ? true : false" (click)="isAllergicFood(0)" value="before">No</mat-radio-button>
+                                </mat-radio-group>
+                                <div class="col-sm-12 text-center" *ngIf="IsAllergicContent" style="margin-top:20px; border: thin solid #eee; padding: 5px 5px 10px 5px;">
+                                    Specify which kind of allergic content from following :
+                                    <!-- arrRadioBtnAllergic -->
+                                    <div class="col-sm-12 text-center" style="margin-top: 15px;">
+                                        <table class="table-regular" align="center">
+                                            <tr *ngFor="let data of arrRadioBtnAllergic">
+                                                <td style="width:100px; text-align:left;">{{ data.Caption }}</td>
+                                                <td><mat-radio-button 
+                                                    [checked]="data.YesBoolean == 1 ? true : false" 
+                                                    name ="{{ data.Ser }}"
+                                                    (click)="set_allergic_param(data.RadioBtnId,1)" value="after" style="margin-right: 10px;">Yes
+                                                </mat-radio-button></td>
+                                                <td><mat-radio-button 
+                                                    [checked]="data.NoBoolean == 1 ? true : false" 
+                                                    name ="{{ data.Ser }}"
+                                                    (click)="set_allergic_param(data.RadioBtnId,0)" value="before">No</mat-radio-button></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="hidden" size="2" id="ItemSer" name="ItemSer" [(ngModel)]="ItemSer">
+                                    <input type="hidden" size="2" id="RefMenuIdItem" name="RefMenuIdItem" [(ngModel)]="RefMenuIdItem">
+                                    <input type="hidden" size="2" id="ItemId" name="ItemId" [(ngModel)]="ItemId">
+                                    <input type="hidden" size="2" id="ItemImgId" name="ItemImgId" [(ngModel)]="ItemImgId">
+                                </div>
+                                <div class="col-sm-12 text-center" style="margin-top: 15px;">
+                                    <div class="row">
+                                        <table align="center">
+                                            <tr>
+                                                <td valign="top">
+                                                    <div class="upload-btn-wrapper" style="cursor: pointer">
+                                                        <button class="btn btn-bg btn-default">Image</button>
+                                                        <input #fileToUpload (change)="onFileSelected($event,3)" type="file" name="myfile" />
+                                                    </div>
+                                                </td>
+                                                <td valign="top">
+                                                    <button type="submit" class="btn btn-default btn-bg">{{ ItemSubmit }}</button>
+                                                </td>
+                                                <td valign="top">
+                                                    <button type="button" (click)="form_reset(2)" class="btn btn-default btn-bg">Reset</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="row txt-xxs text-center" style="padding: 10px;">{{ SelectedImageItem }}</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="setup-menu" class="row text-center divider" style="padding-top:15px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding: 20px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Item List</span>
+                <div class="txt-xxs">{{ SelectedMenuItem }}</div>
+                <hr class="underline">
+            </div>
+            <div class="row">
+                <div class="col-sm-12 frame-regular text-left" style="overflow-x:auto;">
+                    <table align="center" width="100%" class="table table-bordered table-hover table-condensed table-regular" style="margin-top:1px;">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th class="text-left">Menu</th>
+                                <th class="text-center">ItemId</th>
+                                <th class="text-left">Name</th>
+                                <th class="text-left">Description</th>
+                                <th class="text-center">Offer</th>
+                                <th class="text-center">Offer Amt</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Category</th>
+                                <th class="text-center">Veg</th>
+                                <th class="text-center">Allergic</th>
+                                <th class="text-center">Gluton<br>free</th>
+                                <th class="text-center">Egg<br>free</th>
+                                <th class="text-center">Lactos<br>free</th>
+                                <th class="text-center">Suger<br>free</th>
+                                <th class="text-center">Seafood<br>free</th>
+                                <th class="text-center">Nut<br>free</th>
+                                <th class="text-center">Img ID</th>
+                                <th class="text-center">Featured<br>Item</th>                                
+                                <th class="text-center">Dis-Cont</th>
+                                <th class="text-center">Edit | Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of arrFilteredItemList">
+                                <td>
+                                    <img src="{{ imgUrl + 'items/' + data.OrgId + data.ImgId +'.png' }}" alt="Image not found" style="height: 30px; width: 40px;">
+                                    <div>
+                                        <a style="text-decoration: none; cursor: pointer;" class="txt-xxs" (click)="edit_itemlist(data, 1)">Change</a>
+                                    </div>
+                                </td>
+                                <td class="text-left">{{ data.MenuName }}</td>
+                                <td class="text-center">{{ data.ItemId }}</td>
+                                <td class="text-left">{{ data.ItemName }}</td>
+                                <td class="text-left">{{ data.ItemDesc }}</td>
+                                <td class="text-center">{{ data.OfferTxt }}</td>
+                                <td class="text-center">{{ data.AmtOffer }}</td>
+                                <td class="text-center">{{ data.Price }}</td>
+                                <td class="text-center">{{ data.CatTxt }}</td>
+                                <td class="text-center">{{ data.VegTxt }}</td>
+                                <td class="text-center">{{ data.AllergicTxt }}</td>
+                                <td class="text-center">{{ data.GFTxt }}</td>
+                                <td class="text-center">{{ data.EggTxt }}</td>
+                                <td class="text-center">{{ data.LactoseTxt }}</td>
+                                <td class="text-center">{{ data.SugarTxt }}</td>
+                                <td class="text-center">{{ data.SeafoodTxt }}</td>
+                                <td class="text-center">{{ data.NutTxt }}</td>
+                                <td class="text-center">{{ data.ImgId }}</td>
+                                <td class="text-center">{{ data.FeaturedTxt }}</td>
+                                <td class="text-center">{{ data.DisconTxt }}</td>
+                                <td class="text-center" style="width: 80px; padding-left: 10px;">
+                                    <table class="table-regular" align="center">
+                                        <tr>
+                                            <td valign="top">
+                                                <div style="padding-left:8px;">
+                                                    <mat-radio-button name="act-radio-btn" (click)="edit_itemlist(data, 0)"></mat-radio-button>
+                                                </div>
+                                                <div class="txt-xxs">Edit</div>
+                                            </td>
+                                            
+                                            <td valign="top" *ngIf="!IsDrinkDisabled">
+                                                <div style="padding-left:5px;">
+                                                    <mat-radio-button name="act-radio-btn" (click)="delete_items(data)"></mat-radio-button>
+                                                </div>
+                                                <div class="txt-xxs">Delete</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+</div>

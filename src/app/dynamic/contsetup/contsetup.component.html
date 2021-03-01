@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="row div-navbar text-center">
+        <app-navbarsetup></app-navbarsetup>
+    </div>
+
+    <div id="setup-menu" class="row text-center divider" style="padding-top:85px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding-bottom: 30px;">
+            <div class="col-sm-12 txt-holder">
+                <span>Setup Content</span>
+                <hr class="underline">
+            </div>
+            <h4 class="text-left" style="letter-spacing: 1.5px;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h4>
+        </div>
+    </div>
+    <div id="setup-menu" class="row text-center divider" style="padding-top:15px;">
+        <div class="col-sm-offset-1 col-sm-10" style="padding: 20px;">
+            <div class="col-sm-12 txt-holder">
+                <span>{{ ContentHead }}</span>
+                <hr class="underline">
+            </div>
+            <div class="row">
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    <div class="col-sm-12 text-left">
+                        <div class="txt-bg">
+                            Select Content for Site
+                        </div>
+                        <div class="col-sm-12" *ngFor="let data of arrContentOption" style="margin-top:20px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <mat-radio-button name="Category" value="content-radio" 
+                                        (click)="fetch_setup_info(data.ObjTypeId)">{{ data.Caption }}
+                                        </mat-radio-button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    <div class="col-sm-12">
+                        <form #m="ngForm" (ngSubmit)="create_update_content(m.value)" autocomplete="off">
+                            <div *ngIf="IsBS">
+                                <div class="form-group text-left">
+                                    <label for="TxtMain" class="lbl-form">{{ label1 }}</label>
+                                    <textarea rows="3" id="TxtMain" name="TxtMain" [(ngModel)]="TxtMain" class="form-control input-sm"></textarea>
+                                </div>
+                                <div class="form-group text-left" *ngIf="IsVisIns2">
+                                    <label for="TxtSm" class="lbl-form">{{ label2 }}</label>
+                                    <input type="text" id="TxtSm" name="TxtSm" [(ngModel)]="TxtSm" class="form-control input-sm">
+                                </div>
+                                <div>
+                                    <input type="text" id="LookupSer" name="LookupSer" [(ngModel)]="LookupSer" class="form-control input-sm">
+                                </div>
+                                <div class="col-sm-12 text-left" style="margin-top: 8px;">
+                                    <div class="row">
+                                        <table>
+                                            <tr>
+                                                <td valign="top">
+                                                    <div class="upload-btn-wrapper" style="cursor: pointer">
+                                                        <button type="button" class="btn btn-bg btn-default">Image</button>
+                                                        <input #fileToUpload (change)="onFileSelected($event, 1)" type="file" name="myfile" />
+                                                    </div>
+                                                </td>
+                                                <td valign="top">
+                                                    <button type="submit" class="btn btn-default btn-bg">
+                                                        {{ SubmitMainContent }}
+                                                    </button>
+                                                </td>
+                                                <td valign="top">
+                                                    <button type="button" (click)="form_reset(1)" class="btn btn-default btn-bg">Reset</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="row text-left txt-xxs" style="margin-top: 1px; padding-left: 10px;">{{ SelectedImageObj }}</div>
+                                </div>
+                                <div class="col-sm-12 text-left" style="margin-top: 8px;">
+                                    <!-- <button type="button" class="btn btn-xs btn-default" *ngFor="let data of arrContentHead" 
+                                    (click)="update_content(data.Ser, data.TxtMain, data.TxtSm, data.Value, data.ObjTypeId)" 
+                                    style="margin: 2px; padding: 5px; border-radius: 5px;">{{ data.TxtMain }}</button> -->
+                                    <ul>
+                                        <li *ngFor="let data of arrContentHead"><a style="text-decoration: none; font-weight:bold; cursor: pointer;" (click)="update_content(data.Ser, data.TxtMain, data.TxtSm, data.Value, data.ObjTypeId)">{{ data.TxtMain }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4 frameX" style="margin-bottom: 10px;">
+                    <div class="col-sm-12" *ngIf="IsSubCat">
+                        <!--  -->
+                        <form #x="ngForm" (ngSubmit)="create_update_sub_content(x.value)" autocomplete="off">
+                            <div class="form-group text-left">
+                                <label for="TxtMainSvc" class="lbl-form">{{ labelSubSvc }}</label>
+                                <textarea rows="3" id="TxtMainSvc" name="TxtMainSvc" [(ngModel)]="TxtMainSvc" class="form-control input-sm"></textarea>
+                            </div>
+                            
+                            <div>
+                                <input type="text" id="LookupSvcSer" name="LookupSvcSer" [(ngModel)]="LookupSvcSer" class="form-control input-sm">
+                                <input type="text" id="LookupSvcObjTypeId" name="LookupSvcObjTypeId" [(ngModel)]="LookupSvcObjTypeId" class="form-control input-sm">
+                                <input type="text" id="LookupSvcValue" name="LookupSvcValue" [(ngModel)]="LookupSvcValue" class="form-control input-sm">
+                                
+                            </div>
+                            <div class="col-sm-12 text-left" style="margin-top: 8px;">
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <td valign="top">
+                                                <div class="upload-btn-wrapper" style="cursor: pointer">
+                                                    <button type="button" class="btn btn-bg btn-default">Image</button>
+                                                    <input #fileToUpload (change)="onFileSelected($event, 2)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td valign="top">
+                                                <button type="submit" class="btn btn-default btn-bg">
+                                                    {{ SubmitSubCat }}
+                                                </button>
+                                            </td>
+                                            <td valign="top">
+                                                <button type="button" (click)="form_reset(1)" class="btn btn-default btn-bg">Reset</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

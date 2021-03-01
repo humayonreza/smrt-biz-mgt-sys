@@ -1,0 +1,190 @@
+<div class="row">
+    <div class="row div-navbar text-center">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-sm-offset-1 col-sm-10 info-box text-center" style="margin-top: 80px;">
+        <div class="col-sm-12 txt-holder">
+            <span>Contact us</span>
+            <hr class="underline">
+        </div>
+        <div class="col-sm-4 shadow-light" style="padding: 20px 2px 20px 2px;">
+            <div class="col-sm-12 txt-holder">
+                <span class="txt-sm">Business Info</span>
+                <hr class="underline">
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true" [expanded]="true">
+                            <mat-expansion-panel-header style="background: transparent;">
+                                <mat-panel-title>
+                                    <div class="col-sm-12">
+                                        <div class="row txt-panel-title">
+                                            <i class="glyphicon glyphicon-time"></i>Operating Hour
+                                        </div>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="col-sm-12 text-center">
+                                <div class="row">
+                                    <table width="100%" class="table-mat-expansion">
+                                        <thead>
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Lunch</th>
+                                                <th>Dinner</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of arrWkTimeTable">
+                                                <td>{{ data.viewValue }}</td>
+                                                <td>{{ data.Lunch }}</td>
+                                                <td>{{ data.Dinner }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div class="col-sm-12">
+                                        <div class="row txt-panel-title">
+                                            <i class="glyphicon glyphicon-check"></i>Giftcards
+                                        </div>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Gift Cards
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div class="col-sm-12">
+                                        <div class="row txt-panel-title">
+                                            <i class="glyphicon glyphicon-adjust"></i>Terms & Conditions
+                                        </div>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Terms & Conditions
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 shadow-light" style="padding: 20px 2px 20px 2px;">
+            <div class="col-sm-12 txt-holder">
+                <span class="txt-sm">Subscribe us</span>
+                <hr class="underline">
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-12 txt-xs text-left" style="margin-top: 12px;">
+                    <div class="row">
+                        To subscribe and unsubscribe we need your email address as required field.
+                        Contact number is required only if
+                        you want us to send you message as text to your phone
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <div class="row">
+                        <input type="text" id="ClientEmailSubscribe" name="ClientEmailSubscribe" [(ngModel)]="ClientEmailSubscribe"
+                            class="form-control input-style" placeholder="Your Email" required />
+                        <span class="glyphicon glyphicon-envelope form-control-feedback" style="margin-right: 15px;"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: -5px;">
+                    <div class="row">
+                        <input type="text" id="ClientPhoneNo" name="ClientPhoneNo" [(ngModel)]="ClientPhoneNo"
+                            class="form-control input-style" placeholder="Phone | Optional" />
+                        <span class="glyphicon glyphicon-phone-alt form-control-feedback" style="margin-right: 15px;"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 txt-xs text-left" style="margin-top: 12px;">
+                    <div class="row">
+                        To subscribe and unsubscribe we need your email address as required field.
+                        Contact number is required only if
+                        you want us to send you message as text to your phone
+                    </div>
+                </div>
+                <div class="col-sm-12 text-left" style="margin-top: 10px;">
+                    <div class="row">
+                        <button type="submit" class="btn btn-default btn-bg input-style">
+                            Submit
+                            <span class="glyphicon glyphicon-send" style="margin-left: 10px;"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 shadow-light" style="padding: 20px 2px 20px 2px;">
+            <div class="col-sm-12 txt-holder">
+                <span class="txt-sm">Message us</span>
+                <hr class="underline">
+            </div>
+            <div class="col-sm-12 txt-xs text-left" style="margin-top: 12px;">
+                <div class="col-sm-12">
+                    <div class="row">
+                        To subscribe and unsubscribe we need your email address as required field.
+                        Contact number is required only if
+                        you want us to send you message as text to your phone
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="col-sm-12">
+                    <div class="row txt-panel-title text-left">
+                        <span class="glyphicon glyphicon-map-marker" style="margin-right:10px;"></span>
+                        {{ OrgAddress }}
+                    </div>
+                    <div class="row txt-panel-title text-left">
+                        <span class="glyphicon glyphicon-phone-alt" style="margin-right:10px;"></span>
+                        {{ OrgContactNo }}
+                    </div>
+                    <div class="row txt-panel-title text-left">
+                        <span class="glyphicon glyphicon-envelope" style="margin-right:10px;"></span>
+                        {{ OrgEmail }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <form #c="ngForm" (ngSubmit)="send_msg(c.value)" autocomplete="off">
+                        <div class="col-sm-12">
+                            <input type="text" id="ClientName" name="ClientName" [(ngModel)]="ClientName"
+                                class="form-control input-style" placeholder="Your Name" required />
+                            <span class="glyphicon glyphicon-user form-control-feedback" style="margin-right: 20px;"></span>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:-5px;">
+                            <input type="text" id="ClientEmail" name="ClientEmail" [(ngModel)]="ClientEmail"
+                                class="form-control input-style" placeholder="Your Email" required />
+                            <span class="glyphicon glyphicon-envelope form-control-feedback" style="margin-right: 20px;"></span>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:1px;">
+                            <textarea rows="2" type="text" id="ClientMsg" name="ClientMsg" [(ngModel)]="ClientMsg"
+                                class="form-control input-style" placeholder="Your Message" required></textarea>
+                            <span class="glyphicon glyphicon-edit form-control-feedback" style="margin-right: 20px;"></span>
+                        </div>
+                        <div class="col-sm-12 text-left" style="margin-top: 5px; padding-bottom: 15px;">
+                            <button type="submit" class="btn btn-default btn-bg input-style">
+                                Submit
+                                <span class="glyphicon glyphicon-send" style="margin-left: 10px;"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="height: 30px;">&nbsp;</div>
+<div class="col-sm-12 footer">
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(1)">RESERVATION</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(2)">MENU</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(3)">TAKEAWAY</a>
+</div>

@@ -1,0 +1,302 @@
+<div class="col-sm-12">
+  <div class="row div-navbar text-center">
+    <app-navbar></app-navbar>
+  </div>
+  <div *ngIf="IsDisplayCheckout" class="col-sm-offset-4 col-sm-4 text-center" style="margin-top:85px;">
+    <div class="txt-lg">Checkout Process</div>
+    <div class="txt-xs" style="margin-bottom: 15px;">Power by RC92</div>
+    <div class="row">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" [expanded]="true">
+          <mat-expansion-panel-header style="background: transparent;">
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="fa fa-shopping-cart"></i>Item Ordered
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="col-sm-12 text-center">
+            <div class="row">
+              <table class="table table-condensed table-hover" style="color: #444;">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Purchased</th>
+                    <th>Total</th>
+                    <th class="text-center">Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of arrTakeawayCart">
+                    <td class="text-left" style="padding: 6px 5px 0px 10px;">{{ data.ItemName }}</td>
+                    <td class="text-left" style="padding: 10px 5px 0px 10px;">{{ data.NumberOrdered + " x " + data.SellPrice }}</td>
+                    <td class="text-left" style="padding: 10px 5px 0px 10px;">{{ data.TPrice | number : '1.2-2' }}</td>
+                    <td style="width: 100px;" class="text-center" valign="top">
+                      <i class="fa fa-plus-circle icon-counter" style="color: #888;"
+                        (click)="update_checkout(data.ItemId,1)"></i>
+                      <i class="fa fa-minus-circle icon-counter" style="color: #888;"
+                        (click)="update_checkout(data.ItemId,0)"></i>
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="text-left" style="padding: 10px 5px 0px 10px; font-weight: bold;">Total</td>
+                    <td class="text-left" style="padding: 10px 5px 0px 10px; font-weight: bold;">{{ TakeawaySum | number : '1.2-2' }}
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="fa fa-sign-in"></i>Signin
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <input type="text" class="form-control" placeholder="User Id">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="glyphicon glyphicon-check"></i>Payment
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          Complete Payment
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="glyphicon glyphicon-time"></i>Pickup Time
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          Pickup time
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div style="margin: 20px 0px 100px 0px;">
+      <button type="button" class="btn btn-default" style="margin-right: 6px; width: 90px;" (click)="return2MenuCheckout(0)">Back</button>
+      <button type="button" class="btn btn-default" style="width: 90px;">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="IsDisplayMenu" id="menu" class="row text-center" style="margin-top:75px;" [style.height.px]="htTopDiv">
+    <div class="col-sm-offset-1 col-sm-10 box-info" style="padding: 20px;">
+      <div class="row" style="overflow-x: auto ;">
+        <table class="table-form" align="center">
+          <tr>
+            <td class="col-sm-2" *ngFor="let data of arrMenu" (click)="get_list_by_menu(data)">
+              <div class="text-center" style="height:100px;">
+                <div style="margin-bottom: 10px;" >
+                  <img class="{{ data.myClass }}" src="{{ imgUrl + 'menu/' + data.OrgId + data.ImgId +'.png' }}" alt="Image not found">
+                </div>
+                <div class="txt-sm" style="font-weight: bold;">{{ data.MenuName }}</div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>  
+    <div class="col-sm-offset-1 col-sm-10 text-center box-info">
+      <div class="row">
+        <div class="col-sm-offset-4 col-sm-4 text-center">
+          <div class="col-sm-12">
+            <button *ngFor="let data of arrFoodOption" class="btn btn-xs btn-primary {{ data.BtnClass }}" style="margin-right: 4px; padding: 5px;" (click)="menu_option(data.value)">
+              <i class="{{ data.IconClass }}" style="padding-right:10px;font-size: 18px;"></i>&nbsp;&nbsp;{{ data.Caption }}&nbsp;&nbsp;</button>
+          </div>
+          
+          <div class="col-sm-12" style="margin-top:2px;">
+            <table class="table-regular" align="center">
+              <tr>
+                <td *ngFor="let data of arrCategoryRadioCon">
+                  <div style="padding-left:10px;">
+                    <mat-radio-button name="Category-radio-btn" 
+                    (click)="get_list_by_menuId_categoryId(data.CategoryId)">
+                    </mat-radio-button>
+                  </div>
+                  <div>{{ data.Caption }}</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-12 txt-holder" style="margin-top:15px;">
+          <span>{{ ListTitleMenu }}</span>
+          <div class="txt-sm">{{ SelectedMenuDetails }}</div>
+          <hr class="underline">
+        </div>
+        <!-- height : 450px; overflow-y: auto; -->
+        <div class="col-sm-12" style="padding-bottom: 20px;">
+          <div class="row">
+            <div *ngFor="let data of arrFilteredItemList" class="col-sm-6">
+              <table width="100%" align="center" class="table-condensed table-bordered myTab">
+                <tbody>
+                  <tr style="height : 100px; overflow-y: auto;" 
+                    [ngStyle]="{ 'background-color': data.IsSelected == 1 ? '#eee' : '#fff' }">
+                    <td valign="top" class="td-classA">
+                      <div *ngIf="!IsSmartSM">
+                        <mat-card style="padding: 0; margin: 0;">
+                          <img src="{{ imgUrl + 'items/' + data.OrgId + data.ImgId + '.png' }}" alt="Image not found"
+                            style="height: 85px; width: 80px;">
+                        </mat-card>
+                      </div>
+                      <div *ngIf="IsSmartSM">
+                        <mat-card style="padding: 0; margin: 0;">
+                          <img src="{{ imgUrl + 'items/' + data.OrgId + data.ImgId + '.png' }}" alt="Image not found"
+                            style="height: 55px; width: 50px;">
+                        </mat-card>
+                      </div>
+                    </td>
+                    <td valign="top">
+                      <div class="txt-sm text-left txt-row-title">{{ data.ItemName }}</div>
+                      
+                      <div *ngIf="IsSmartSM">
+                        <div class="txt-xxs text-left">{{ data.ItemDesc }}</div>
+                        <div *ngIf="data.IsAllergic == 1" class="txt-xxs text-left" style="color:orange;"> {{ data.GFTxt + data.EggTxt + data.LactoseTxt + data.SugarTxt + 
+                          data.SeafoodTxt + data.NutTxt }} </div>
+                      </div>
+
+                      <div *ngIf="!IsSmartSM">
+                        <div class="txt-xs text-left">{{ data.ItemDesc }}</div>
+                        <div *ngIf="data.IsAllergic == 1" class="txt-xs text-left" style="color: orange;"> {{ data.GFTxt + data.EggTxt + data.LactoseTxt + data.SugarTxt + 
+                          data.SeafoodTxt + data.NutTxt }} </div>
+                      </div>
+                      <div [ngStyle]="{ 'background-color': data.IsSelected == 1 ? 'lightblue' : '#fff' }">
+                        <table width="100%" style="border: thin solid #fff;">
+                          <tr style="border: none; padding: 1px 4px 1px 4px; border-radius: 8px;">
+                            <td class="text-left" style="width: 45%; border: none; padding-left:5px;">
+                              <a style="text-decoration: none; cursor: pointer; font-weight: bold;" class="txt-xs" (click)="init_process_takeaway(data.ItemId,data.ItemName, data.SellingPrice)">{{ data.AddRemoveTxt }}</a>
+                            </td>
+                            <td class="text-right" style="width: 55%; border: none;">
+                              <span style="margin-right: 15px;">{{ data.NumberOrdered }}</span> 
+                              <i class="fa fa-plus-circle icon-counter" (click)="update_cart_item(data.ItemId,data.ItemName,data.SellingPrice,1)"></i>
+                              <i class="fa fa-minus-circle icon-counter" (click)="update_cart_item(data.ItemId,data.ItemName,data.SellingPrice,0)"></i>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </td>
+                    <td valign="top" class="td-classB">
+                      <div class="txt-xs text-left" style="color:blue;font-size:13px;font-weight:bold;">
+                        ${{ data.SellingPrice | number : '1.2-2' }}</div>
+                      <div class="txt-xxs text-left" style="color: red;" *ngIf="data.AmtOffer > 0">{{ "Offer " + data.AmtOffer + "%" }} </div>
+                      <div class="txt-xxs text-left" style="color: red;" *ngIf="data.AmtOffer > 0">Was<br>${{ data.Price | number : '1.2-2' }}</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12" style="height:50px;">&nbsp;</div>
+      </div>
+    </div>
+  </div> 
+</div>
+<div class="col-sm-12 footer text-center" style="color: rgb(237, 243, 209)">
+  <table align="center">
+    <tr>
+      <td class="text-center">
+        <div style="padding-right:3px;"><i class="fa fa-calendar"></i></div>
+        <div style="margin-top:-5px;">
+          <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(1)">RESERVATION</a></div>
+      </td>
+      <td class="text-center">
+        <div style="padding-right: 8px;">
+          <i class="fa fa-shopping-cart" style="font-size: 17px;"></i>&nbsp;&nbsp;
+          <span style="font-size: 15px;">{{ TakeawayItemNo }}</span>
+        </div>
+        <div style="margin-top:-5px;">
+          <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(2)">{{ MenuStr }}</a>
+        </div>
+      </td>
+      <td class="text-center">
+        <div style="padding-right:8px;" class="txt-xs">
+           <span style="font-size: 15px; font-weight: bold;">$</span>&nbsp;&nbsp;
+          <span style="font-size: 15px;">{{ TakeawaySum | number : '1.2-2' }}</span>
+        </div>
+        <div style="margin-top:-5px;">
+          <a style="text-decoration: none;" class="btn btn-sm" (click)="return2MenuCheckout(1)">{{ TakeawayStr }}</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- 
+
+  <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" [expanded]="true">
+          <mat-expansion-panel-header style="background: transparent;">
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="fa fa-cutlery"></i>Selected List
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="col-sm-12 text-center">
+            <div class="row">
+              
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="fa fa-sign-in"></i>Signin
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="col-sm-12">
+            
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-sm-12">
+                <div class="row txt-panel-title text-left">
+                  <i class="fa fa-cc-mastercard"></i>Complete Payment
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          Complete Payment
+        </mat-expansion-panel>
+      </mat-accordion>
+ -->

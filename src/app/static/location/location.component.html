@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="row div-navbar text-center">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-sm-offset-4 col-sm-4 shadow-dark" style="overflow-y: auto; padding:20px; margin-top: 85px;">
+        <div class="col-sm-12 text-center" style="margin-bottom: 25px;">
+            <div class="txt-lg">{{ OrgName }}</div>
+            <div class="txt-sm">{{ OrgAddress }}</div>
+            <div class="txt-xs"><span class="glyphicon glyphicon-phone-alt" style="margin-right:10px;"></span>{{ OrgContactNo }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 div-map">
+                <div class="col-sm-12 text-center" style="color: #000;">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                        <agm-marker [latitude]="lat" [longitude]="lng">
+                            <agm-info-window>
+                                <div class="txt-md">Moments</div>
+                                <div class="txt-xs">{{ OrgAddress }}</div>
+                            </agm-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <img src="{{ baseImgUrl + 'premise.png' }}" alt="Los Angeles" width="100%" height="130">
+                </div>
+            </div>
+            <div class="col-sm-12 text-left" style="margin-top: 15px; padding-left: 30px;">
+                <a style="text-decoration: none;" href="{{ Carpark }}">
+                    <i class='fa fa-car' style='font-size:18px; margin-right: 15px'></i>Nearest Carpark
+                </a>
+            </div>
+            <!-- <div class="col-sm-12 text-left" style="margin-top: 5px; padding-left: 30px;">
+                <a style="text-decoration: none;"
+                    href="https://maps.google.com/?q=Westfield Busstop, Belconnen, Canberra, Australia">
+                    <i class='fas fa-car' style='font-size:18px'></i>&nbsp;&nbsp; Nearest Public
+                    Transport
+                </a>
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 footer">
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(1)">RESERVATION</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(2)">MENU</a>
+    <a style="text-decoration: none;" class="btn btn-sm" (click)="open_page(3)">TAKEAWAY</a>
+</div>
